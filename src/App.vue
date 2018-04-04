@@ -71,7 +71,11 @@ export default {
             fetch(url).then(response => response.json())
                       .then(data => {
                             // TODO: create circles to represent significant recent earthquakes
-                            console.log(data)
+                            for (var x = 0; x < 277; x++){
+                            this.markers.push({position: {lat: data.features[x].geometry.coordinates[0],
+                                                         lng: data.features[x].geometry.coordinates[1]}
+                                              })
+                            }
                        })
                       .catch(error => console.log(error))
         }
